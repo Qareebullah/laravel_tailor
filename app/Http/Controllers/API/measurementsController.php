@@ -36,16 +36,16 @@ class measurementsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-                'customer_id' => 'required|string',
-                'tailor_id' => 'required|string',
-                'stock_id' => 'required|string',
-                'length' => 'nullable|string',
-                'chest' => 'nullable|string',
-                'shoulder' => 'nullable|string',
-                'sleeve' => 'nullable|string',
-                'sleeve_type' => 'nullable|string',
-                'collar_type' => 'nullable|string',
-                'tonban_length' => 'nullable|string',
+                'customer_id' => 'string',
+                'tailor_id' => 'string',
+                'stock_id' => 'string',
+                'length' => 'string',
+                'chest' => 'string',
+                'shoulder' => 'string',
+                'sleeve' => 'string',
+                'sleeve_type' => 'string',
+                'collar_type' => 'string',
+                'tonban_length' => 'string',
                 'tonban_type' => 'nullable|string',
                 'cuff_type' => 'nullable|string',
                 'cuff_size' => 'nullable|string',
@@ -90,7 +90,7 @@ class measurementsController extends Controller
                 'waistcoat_pockets' => 'nullable|string',
                 'waistcoat_inside_pockets' => 'nullable|string',
                 'waistcoat_buttons' => 'nullable|string',
-                'added_by' => 'required|string',
+                'added_by' => 'string',
         ]);
 
         $addMeasurements = new measurements();
@@ -215,9 +215,9 @@ class measurementsController extends Controller
         }
 
         $validated = $request->validate([
-            'customer_id' => 'required|string',
-            'tailor_id' => 'required|string',
-            'stock_id' => 'required|string',
+            'customer_id' => 'string',
+            'tailor_id' => 'string',
+            'stock_id' => 'string',
             'length' => 'nullable|string',
             'chest' => 'nullable|string',
             'shoulder' => 'nullable|string',
@@ -269,7 +269,7 @@ class measurementsController extends Controller
             'waistcoat_pockets' => 'nullable|string',
             'waistcoat_inside_pockets' => 'nullable|string',
             'waistcoat_buttons' => 'nullable|string',
-            'added_by' => 'required|string',
+            'added_by' => 'string',
         ]);
 
         // Required fields

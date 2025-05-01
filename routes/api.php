@@ -36,6 +36,6 @@ Route::apiResource('registration', UserController::class);
 Route::apiResource('stock', UserController::class);
 
 // orders
-Route::apiResource('orders', customersController::class);
+Route::apiResource('orders', ordersController::class);
 
 

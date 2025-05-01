@@ -99,7 +99,7 @@ class stockController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => 'User with the mentioned not found.'
-            ], 404);
+            ], 404); 
         }
 
         $validated = $request->validate([
