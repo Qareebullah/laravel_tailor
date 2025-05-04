@@ -144,7 +144,7 @@ class ordersController extends Controller
      */
     public function destroy(string $id)
     {
-        $deleteOrder = orders::find($id)->delete();
+        $deleteOrder = orders::find($id)->forceDelete();
         if($deleteOrder){
             return response()->json([
                 'status' => true,

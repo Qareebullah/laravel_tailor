@@ -145,7 +145,7 @@ class stockController extends Controller
      */
     public function destroy(string $id)
     {
-        $deleteStock = stock::find($id)->delete();
+        $deleteStock = stock::find($id)->forceDelete();
         if($deleteStock){
             return response()->json([
                 'status' => true,

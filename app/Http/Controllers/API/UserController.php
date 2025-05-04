@@ -191,7 +191,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        $deleteUser = registration::find($id)->delete();
+        $deleteUser = registration::find($id)->forceDelete();
         if($deleteUser){
             return response()->json([
                 'status' => true,

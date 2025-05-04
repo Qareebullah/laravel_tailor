@@ -107,7 +107,7 @@ class customersController extends Controller
      */
     public function destroy(string $id)
     {
-        $deleteCustomer = customers::find($id)->delete();
+        $deleteCustomer = customers::find($id)->delete()->forceDelete();
 
         if($deleteCustomer){
             return response()->json([

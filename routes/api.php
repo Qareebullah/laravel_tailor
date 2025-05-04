@@ -7,6 +7,12 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\measurementsController;
 use App\Http\Controllers\API\stockController;
 use App\Http\Controllers\API\ordersController;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\incomesController;
+use App\Http\Controllers\API\expenseController;
+use App\Http\Controllers\API\reportsController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,8 +26,14 @@ use App\Http\Controllers\API\ordersController;
 
 use App\Http\Controllers\API\Controller;
 
-Route::post('register', [Controller::class, 'register']);
-Route::post('login', [Controller::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+
+
+// Protected routes (require Sanctum token)
+Route::middleware('auth:sanctum')->group(function () {
+
+Route::post('logout', [AuthController::class, 'logout']);
 
 // customers
 Route::apiResource('customers', customersController::class);
@@ -37,5 +49,16 @@ Route::apiResource('stock', UserController::class);
 
 // orders
 Route::apiResource('orders', ordersController::class);
+
+// incomes
+Route::apiResource('incomes', incomesController::class);
+
+// expense
+Route::apiResource('expense', expenseController::class);
+
+// reports
+Route::apiResource('reports', reportsController::class);
+
+});
 
 

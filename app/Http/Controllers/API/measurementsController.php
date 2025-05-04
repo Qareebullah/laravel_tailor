@@ -363,7 +363,7 @@ class measurementsController extends Controller
      */
     public function destroy(string $id)
     {
-        $findMeasurements = measurements::find($id)->delete();
+        $findMeasurements = measurements::find($id)->forceDelete();
         if($findMeasurements){
             return response()->json([
                 'status' => true,
